@@ -1,9 +1,14 @@
+import {Helmet} from 'react-helmet-async';
 import Footer from '../../components/footer/footer';
 import Logo from '../../components/logo/logo';
 
 function MyList(): JSX.Element {
   return (
     <div className="user-page">
+      <Helmet>
+        <title>WTW. My list</title>
+      </Helmet>
+
       <header className="page-header user-page__head">
         <Logo />
 

@@ -1,3 +1,4 @@
+import {Helmet} from 'react-helmet-async';
 import Footer from '../../components/footer/footer';
 import Logo from '../../components/logo/logo';
 
@@ -11,6 +12,10 @@ function Main({ title, genre, year }: MainProps): JSX.Element {
   return (
     <>
       <section className="film-card">
+        <Helmet>
+          <title>WTW</title>
+        </Helmet>
+
         <div className="film-card__bg">
           <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
         </div>

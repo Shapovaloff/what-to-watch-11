@@ -1,3 +1,4 @@
+import {Helmet} from 'react-helmet-async';
 import Footer from '../../components/footer/footer';
 import Logo from '../../components/logo/logo';
 
@@ -5,6 +6,10 @@ function Film(): JSX.Element {
   return (
     <>
       <section className="film-card film-card--full">
+        <Helmet>
+          <title>WTW. Film</title>
+        </Helmet>
+
         <div className="film-card__hero">
           <div className="film-card__bg">
             <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
