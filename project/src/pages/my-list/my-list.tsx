@@ -9,8 +9,6 @@ type MyListProps = {
 }
 
 function MyList({films}: MyListProps): JSX.Element {
-  const favoriteFilms = films.filter((film) => film.isFavorite);
-
   return (
     <div className="user-page">
       <Helmet>
@@ -20,7 +18,7 @@ function MyList({films}: MyListProps): JSX.Element {
       <header className="page-header user-page__head">
         <Logo />
 
-        <h1 className="page-title user-page__title">My list <span className="user-page__film-count">{favoriteFilms.length}</span></h1>
+        <h1 className="page-title user-page__title">My list <span className="user-page__film-count">{films.length}</span></h1>
         <ul className="user-block">
           <li className="user-block__item">
             <div className="user-block__avatar">
@@ -35,7 +33,7 @@ function MyList({films}: MyListProps): JSX.Element {
 
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
-        <FilmsList films={favoriteFilms} />
+        <FilmsList films={films} />
       </section>
       <Footer />
     </div>

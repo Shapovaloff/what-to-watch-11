@@ -18,17 +18,30 @@ type AppProps = {
 }
 
 function App({films, comments}: AppProps): JSX.Element {
+  const favoriteFilms = films.filter((film) => film.isFavorite);
+  const favFilmsLength = favoriteFilms.length;
+
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
           <Route
             path={AppRoute.Main}
-            element={<Main films={films}/>}
+            element={
+              <Main
+                films={films}
+                favFilmsLength={favFilmsLength}
+              />
+            }
           />
           <Route
             path={AppRoute.Film}
-            element={<Film films={films} />}
+            element={
+              <Film
+                films={films}
+                favFilmsLength={favFilmsLength}
+              />
+            }
           />
           <Route
             path={AppRoute.Login}
@@ -40,7 +53,7 @@ function App({films, comments}: AppProps): JSX.Element {
               <PrivateRoute
                 authorizationStatus={AuthorizationStatus.Auth}
               >
-                <MyList films={films} />
+                <MyList films={favoriteFilms} />
               </PrivateRoute>
             }
           />

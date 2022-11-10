@@ -6,12 +6,13 @@ import {FilmsType, FilmType} from '../../types/films';
 
 type FilmProps = {
   films: FilmsType;
+  favFilmsLength: number;
 }
 
-function Film({films}: FilmProps): JSX.Element {
+function Film({films, favFilmsLength}: FilmProps): JSX.Element {
   const params = useParams();
   const film = films.find((item) => item.id === Number(params.id));
-  const {name, backgroundImage, genre, released, posterImage, rating, backgroundColor, director, starring, description} = film as FilmType;
+  const {name, backgroundImage, genre, released, posterImage, rating, backgroundColor, director, starring, description, isFavorite} = film as FilmType;
 
   return (
     <>
@@ -59,10 +60,10 @@ function Film({films}: FilmProps): JSX.Element {
                 </button>
                 <button className="btn btn--list film-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
+                    <use xlinkHref={isFavorite ? '#in-list' : '#add'}></use>
                   </svg>
                   <span>My list</span>
-                  <span className="film-card__count">9</span>
+                  <span className="film-card__count">{favFilmsLength}</span>
                 </button>
                 <a href="add-review.html" className="btn film-card__button">Add review</a>
               </div>

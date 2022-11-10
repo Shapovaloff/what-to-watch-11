@@ -7,9 +7,10 @@ import {FilmsType} from '../../types/films';
 
 type MainProps = {
   films: FilmsType;
+  favFilmsLength: number;
 }
 
-function Main({films}: MainProps): JSX.Element {
+function Main({films, favFilmsLength}: MainProps): JSX.Element {
   const film = films[0];
 
   return (
@@ -65,7 +66,7 @@ function Main({films}: MainProps): JSX.Element {
                     <use xlinkHref="#add"></use>
                   </svg>
                   <span>My list</span>
-                  <span className="film-card__count">9</span>
+                  <span className="film-card__count">{favFilmsLength}</span>
                 </button>
               </div>
             </div>
