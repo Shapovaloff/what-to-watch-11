@@ -1,8 +1,10 @@
 import {Helmet} from 'react-helmet-async';
-import {useParams} from 'react-router-dom';
+import {Params, useParams} from 'react-router-dom';
+import FilmsList from '../../components/films-list/films-list';
 import Footer from '../../components/footer/footer';
 import Logo from '../../components/logo/logo';
-import {FilmsType, FilmType} from '../../types/films';
+import {FilmsType} from '../../types/films';
+import {getFilm, getSimilarFilms} from '../../utils';
 
 type FilmProps = {
   films: FilmsType;
@@ -10,9 +12,11 @@ type FilmProps = {
 }
 
 function Film({films, favFilmsLength}: FilmProps): JSX.Element {
-  const params = useParams();
-  const film = films.find((item) => item.id === Number(params.id));
-  const {name, backgroundImage, genre, released, posterImage, rating, backgroundColor, director, starring, description, isFavorite} = film as FilmType;
+  const params = useParams() as Params;
+  const id = Number(params.id);
+  const film = getFilm(films, id);
+  const similarFilms = getSimilarFilms(films, film, id);
+  const {name, backgroundImage, genre, released, posterImage, rating, backgroundColor, director, starring, description, isFavorite} = film;
 
   return (
     <>
@@ -114,43 +118,7 @@ function Film({films, favFilmsLength}: FilmProps): JSX.Element {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <div className="catalog__films-list">
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="#!">Fantastic Beasts: The Crimes of Grindelwald</a>
-              </h3>
-            </article>
-
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175" />
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="#!">Bohemian Rhapsody</a>
-              </h3>
-            </article>
-
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175" />
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="#!">Macbeth</a>
-              </h3>
-            </article>
-
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/aviator.jpg" alt="Aviator" width="280" height="175" />
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="#!">Aviator</a>
-              </h3>
-            </article>
-          </div>
+          <FilmsList films={similarFilms} />
         </section>
 
         <Footer />
