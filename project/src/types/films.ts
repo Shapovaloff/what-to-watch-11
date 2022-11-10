@@ -1,6 +1,6 @@
 export type Starring = string[];
 
-export type Film = {
+export type FilmType = {
   name: string;
   posterImage: string;
   previewImage: string;
@@ -20,4 +20,4 @@ export type Film = {
   previewVideoLink: string;
 }
 
-export type Films = Film[];
+export type FilmsType = FilmType[];

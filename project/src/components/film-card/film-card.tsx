@@ -1,8 +1,8 @@
 import {Link} from 'react-router-dom';
-import {Film} from '../../types/films';
+import {FilmType} from '../../types/films';
 
 type FilmCardProps = {
-  film: Film;
+  film: FilmType;
 }
 
 function FilmCard({film}: FilmCardProps): JSX.Element {

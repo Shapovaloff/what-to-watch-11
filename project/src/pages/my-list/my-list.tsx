@@ -2,10 +2,10 @@ import {Helmet} from 'react-helmet-async';
 import FilmsList from '../../components/films-list/films-list';
 import Footer from '../../components/footer/footer';
 import Logo from '../../components/logo/logo';
-import {Films} from '../../types/films';
+import {FilmsType} from '../../types/films';
 
 type MyListProps = {
-  films: Films;
+  films: FilmsType;
 }
 
 function MyList({films}: MyListProps): JSX.Element {

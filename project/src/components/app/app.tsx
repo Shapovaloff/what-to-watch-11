@@ -9,11 +9,11 @@ import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import Player from '../../pages/player/player';
 import SingIn from '../../pages/sign-in/sign-in';
 import {Comments} from '../../types/comments';
-import {Films} from '../../types/films';
+import {FilmsType} from '../../types/films';
 import PrivateRoute from '../private-route/private-route';
 
 type AppProps = {
-  films: Films;
+  films: FilmsType;
   comments: Comments;
 }
 
@@ -28,7 +28,7 @@ function App({films, comments}: AppProps): JSX.Element {
           />
           <Route
             path={AppRoute.Film}
-            element={<Film />}
+            element={<Film films={films} />}
           />
           <Route
             path={AppRoute.Login}

@@ -3,10 +3,10 @@ import FilmsList from '../../components/films-list/films-list';
 import Footer from '../../components/footer/footer';
 import GenresList from '../../components/genres-list/genres-list';
 import Logo from '../../components/logo/logo';
-import {Films} from '../../types/films';
+import {FilmsType} from '../../types/films';
 
 type MainProps = {
-  films: Films;
+  films: FilmsType;
 }
 
 function Main({films}: MainProps): JSX.Element {
