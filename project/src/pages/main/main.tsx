@@ -1,14 +1,15 @@
 import {Helmet} from 'react-helmet-async';
 import Footer from '../../components/footer/footer';
 import Logo from '../../components/logo/logo';
+import {Films} from '../../types/films';
 
 type MainProps = {
-  title: string;
-  genre: string;
-  year: number;
+  films: Films;
 }
 
-function Main({ title, genre, year }: MainProps): JSX.Element {
+function Main({films}: MainProps): JSX.Element {
+  const film = films[0];
+
   return (
     <>
       <section className="film-card">
@@ -44,10 +45,10 @@ function Main({ title, genre, year }: MainProps): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">{title}</h2>
+              <h2 className="film-card__title">{film.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{genre}</span>
-                <span className="film-card__year">{year}</span>
+                <span className="film-card__genre">{film.genre}</span>
+                <span className="film-card__year">{film.released}</span>
               </p>
 
               <div className="film-card__buttons">

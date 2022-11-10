@@ -1,4 +1,4 @@
-import { HelmetProvider } from 'react-helmet-async';
+import {HelmetProvider} from 'react-helmet-async';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import {AppRoute, AuthorizationStatus} from '../../const';
 import AddReview from '../../pages/add-review/add-review';
@@ -8,22 +8,23 @@ import MyList from '../../pages/my-list/my-list';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import Player from '../../pages/player/player';
 import SingIn from '../../pages/sign-in/sign-in';
+import {Comments} from '../../types/comments';
+import {Films} from '../../types/films';
 import PrivateRoute from '../private-route/private-route';
 
 type AppProps = {
-  title: string;
-  genre: string;
-  year: number;
+  films: Films;
+  comments: Comments;
 }
 
-function App({title, genre, year}: AppProps): JSX.Element {
+function App({films, comments}: AppProps): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
           <Route
             path={AppRoute.Main}
-            element={<Main title={title} genre={genre} year={year} />}
+            element={<Main films={films}/>}
           />
           <Route
             path={AppRoute.Film}
