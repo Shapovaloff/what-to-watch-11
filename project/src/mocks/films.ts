@@ -20,7 +20,7 @@ export const films: Films = [
     genre: 'Drama',
     released: 2018,
     id: 1,
-    isFavorite: false,
+    isFavorite: true,
     videoLink: 'https://11.react.pages.academy/static/film/video/bubbles.mp4',
     previewVideoLink: 'https://11.react.pages.academy/static/film/video/traffic.mp4'
   },
@@ -89,7 +89,7 @@ export const films: Films = [
     genre: 'Fantasy',
     released: 2018,
     id: 4,
-    isFavorite: false,
+    isFavorite: true,
     videoLink: 'https://11.react.pages.academy/static/film/video/bubbles.mp4',
     previewVideoLink: 'https://11.react.pages.academy/static/film/video/traffic.mp4'
   },
@@ -135,7 +135,7 @@ export const films: Films = [
     genre: 'Action',
     released: 1999,
     id: 6,
-    isFavorite: false,
+    isFavorite: true,
     videoLink: 'https://11.react.pages.academy/static/film/video/bike.mp4',
     previewVideoLink: 'https://11.react.pages.academy/static/film/video/dog.mp4'
   },
@@ -158,7 +158,7 @@ export const films: Films = [
     genre: 'Crime',
     released: 1994,
     id: 7,
-    isFavorite: false,
+    isFavorite: true,
     videoLink: 'https://11.react.pages.academy/static/film/video/matrix.mp4',
     previewVideoLink: 'https://11.react.pages.academy/static/film/video/traffic.mp4'
   },
@@ -181,7 +181,7 @@ export const films: Films = [
     genre: 'Thriller',
     released: 2010,
     id: 8,
-    isFavorite: false,
+    isFavorite: true,
     videoLink: 'https://11.react.pages.academy/static/film/video/bike.mp4',
     previewVideoLink: 'https://11.react.pages.academy/static/film/video/dog.mp4'
   },
