@@ -5,7 +5,7 @@ import Review from '../../pages/review/review';
 import Film from '../../pages/film/film';
 import Main from '../../pages/main/main';
 import MyList from '../../pages/my-list/my-list';
-import NotFoundPage from '../../pages/not-found-page/not-found-page';
+import NotFound from '../../pages/not-found/not-found';
 import Player from '../../pages/player/player';
 import SingIn from '../../pages/sign-in/sign-in';
 import {Comments} from '../../types/comments';
@@ -73,7 +73,7 @@ function App({films, comments}: AppProps): JSX.Element {
           />
           <Route
             path="*"
-            element={<NotFoundPage />}
+            element={<NotFound />}
           />
         </Routes>
       </BrowserRouter>
