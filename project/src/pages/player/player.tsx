@@ -1,15 +1,29 @@
 import {Helmet} from 'react-helmet-async';
+import {useNavigate, useParams} from 'react-router-dom';
+import { FilmsType } from '../../types/films';
+import { getFilm } from '../../utils';
 
-function Player(): JSX.Element {
+type PlayerProps = {
+  films: FilmsType;
+}
+
+function Player({films}: PlayerProps): JSX.Element {
+  const params = useParams();
+  const id = Number(params.id);
+  const film = getFilm(films, id);
+  const {videoLink, posterImage} = film;
+  const navigate = useNavigate();
+  const handleButtonClick = () => navigate(-1);
+
   return (
     <div className="player">
       <Helmet>
         <title>WTW. Player</title>
       </Helmet>
 
-      <video src="#" className="player__video" poster="img/player-poster.jpg"></video>
+      <video src={videoLink} className="player__video" poster={posterImage}></video>
 
-      <button type="button" className="player__exit">Exit</button>
+      <button type="button" onClick={handleButtonClick} className="player__exit">Exit</button>
 
       <div className="player__controls">
         <div className="player__controls-row">
