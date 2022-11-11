@@ -14,3 +14,6 @@ export enum AuthorizationStatus {
 }
 
 export const Genres = ['All genres', 'Comedies', 'Crime', 'Documentary', 'Dramas', 'Horror', 'Kids & Family', 'Romance', 'Sci-Fi', 'Thrillers'];
+
+export const MAX_RATING = 10;
+export const INIT_RATING = 5;

@@ -1,7 +1,7 @@
 import {HelmetProvider} from 'react-helmet-async';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import {AppRoute, AuthorizationStatus} from '../../const';
-import AddReview from '../../pages/add-review/add-review';
+import Review from '../../pages/review/review';
 import Film from '../../pages/film/film';
 import Main from '../../pages/main/main';
 import MyList from '../../pages/my-list/my-list';
@@ -63,7 +63,7 @@ function App({films, comments}: AppProps): JSX.Element {
               <PrivateRoute
                 authorizationStatus={AuthorizationStatus.Auth}
               >
-                <AddReview />
+                <Review films={films} />
               </PrivateRoute>
             }
           />

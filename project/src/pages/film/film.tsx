@@ -1,5 +1,5 @@
 import {Helmet} from 'react-helmet-async';
-import {Params, useParams} from 'react-router-dom';
+import {Link, Params, useParams} from 'react-router-dom';
 import FilmsList from '../../components/films-list/films-list';
 import Footer from '../../components/footer/footer';
 import Logo from '../../components/logo/logo';
@@ -27,7 +27,7 @@ function Film({films, favFilmsLength}: FilmProps): JSX.Element {
 
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src={backgroundImage} alt={name} />
+            <img src={backgroundImage} alt={`${name} poster`} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -38,7 +38,7 @@ function Film({films, favFilmsLength}: FilmProps): JSX.Element {
             <ul className="user-block">
               <li className="user-block__item">
                 <div className="user-block__avatar">
-                  <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+                  <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63" />
                 </div>
               </li>
               <li className="user-block__item">
@@ -69,7 +69,7 @@ function Film({films, favFilmsLength}: FilmProps): JSX.Element {
                   <span>My list</span>
                   <span className="film-card__count">{favFilmsLength}</span>
                 </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
+                <Link to={`/films/${id}/review`} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>
