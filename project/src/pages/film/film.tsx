@@ -1,5 +1,6 @@
 import {Helmet} from 'react-helmet-async';
-import {Link, Params, useParams} from 'react-router-dom';
+import {Params, useParams} from 'react-router-dom';
+import FilmCardButtons from '../../components/film-card-buttons/film-card-buttons';
 import FilmsList from '../../components/films-list/films-list';
 import Footer from '../../components/footer/footer';
 import Logo from '../../components/logo/logo';
@@ -17,7 +18,7 @@ function Film({films, favFilmsLength}: FilmProps): JSX.Element {
   const id = Number(params.id);
   const film = getFilm(films, id);
   const similarFilms = getSimilarFilms(films, film, id);
-  const {name, backgroundImage, genre, released, posterImage, rating, backgroundColor, director, starring, description, isFavorite} = film;
+  const {name, backgroundImage, genre, released, posterImage, rating, backgroundColor, director, starring, description} = film;
 
   return (
     <>
@@ -46,22 +47,7 @@ function Film({films, favFilmsLength}: FilmProps): JSX.Element {
                 <span className="film-card__year">{released}</span>
               </p>
 
-              <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
-                <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref={isFavorite ? '#in-list' : '#add'}></use>
-                  </svg>
-                  <span>My list</span>
-                  <span className="film-card__count">{favFilmsLength}</span>
-                </button>
-                <Link to={`/films/${id}/review`} className="btn film-card__button">Add review</Link>
-              </div>
+              <FilmCardButtons favFilmsLength={favFilmsLength} isAddReview id={id} />
             </div>
           </div>
         </div>
