@@ -5,6 +5,7 @@ import {FilmsType} from '../../types/films';
 import {getFilm} from '../../utils';
 import AddReview from '../../components/add-review/add-review';
 import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
+import UserBlock from '../../components/user-block/user-block';
 
 type ReviewProps = {
   films: FilmsType;
@@ -32,17 +33,7 @@ function Review({films}: ReviewProps): JSX.Element {
         <header className="page-header">
           <Logo />
           <Breadcrumbs name={name} id={id} />
-
-          <ul className="user-block">
-            <li className="user-block__item">
-              <div className="user-block__avatar">
-                <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63" />
-              </div>
-            </li>
-            <li className="user-block__item">
-              <a href="#!" className="user-block__link">Sign out</a>
-            </li>
-          </ul>
+          <UserBlock />
         </header>
 
         <div className="film-card__poster film-card__poster--small">
